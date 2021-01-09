@@ -26,6 +26,7 @@ budget_dict.pop('Date')
 general_pl = 0
 lastpl = 0
 changesum = 0
+changepl = 0
 max_p = 0
 max_pd = " "
 max_l = 0
@@ -33,17 +34,19 @@ max_ld = " "
     
 for j in budget_dict.keys():
     general_pl = general_pl + int(budget_dict.get(j))
-    if j != "Jan-10": changesum += int(budget_dict.get(j)) - lastpl
+    if j != "Jan-10": 
+        changesum += int(budget_dict.get(j)) - lastpl
+        changepl = int(budget_dict.get(j)) - lastpl
     
     #print(int(budget_dict.get(j)))
     #print(changesum)
 
-    if int(budget_dict.get(j)) > max_p:
-        max_p = int(budget_dict.get(j))
+    if changepl > max_p:
+        max_p = changepl
         max_pd = j
 
-    if int(budget_dict.get(j)) < max_l:
-        max_l = int(budget_dict.get(j))
+    if changepl < max_l:
+        max_l = changepl
         max_ld = j       
      
     lastpl = int(budget_dict.get(j))
