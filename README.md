@@ -44,3 +44,5 @@
   * In addition, the final script should both print the analysis to the terminal and export a text file with the results.
 
     ![Vote Counting](images/pypoll.PNG)
+    
+  * Job done
